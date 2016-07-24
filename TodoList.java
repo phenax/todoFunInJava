@@ -93,12 +93,17 @@ public class TodoList {
 
                 j= i;
 
-                while(j < numberOfTodos) {
-                    todoList[j]= todoList[++j];
+                while(j < numberOfTodos - 1) {
+                    todoList[j]= todoList[j + 1];
+                    j++;
                 }
+
+                numberOfTodos--;
 
                 // Item found
                 found= true;
+
+                break;
             }
         }
 
