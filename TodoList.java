@@ -16,6 +16,7 @@ public class TodoList {
     // The current number of todos in the array
     private int numberOfTodos= 0;
 
+
     // constructor
     TodoList() {
         todoList= new TodoItem[MAX_TODO_ITEMS];
@@ -30,7 +31,8 @@ public class TodoList {
         int i, j;
         TodoItem temp;
 
-        // Just sorting it with the filter = checked state of todo
+        // Just bubble-sorting it {with the filter as the checked state of todo}
+        // TODO: Maybe some other sorting algorithm?
         for(i= 0; i< numberOfTodos - 1; i++) {
             for(j= 0; j< numberOfTodos - i - 1; j++) {
                 if(!todoList[j].getTaskCheckedState()) {
@@ -82,13 +84,19 @@ public class TodoList {
     }
 
 
-
+    /**
+     * Deletes a task from the array
+     *
+     * @param name The name of the task to delete
+     */
     public void deleteTodoItem(String name) {
         int i, j;
         boolean found= false;
 
         // Search for the name in the list
         for(i= 0; i< numberOfTodos; i++) {
+
+            // If task found
             if(name.equals(todoList[i].getName())) {
 
                 j= i;
